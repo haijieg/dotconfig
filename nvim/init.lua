@@ -32,7 +32,10 @@ require "paq" {
   {'tpope/vim-surround'};
   {'terrortylor/nvim-comment'};
   {'vim-scripts/a.vim'};
+  {'tpope/vim-repeat'};
+  {'pappasam/nvim-repl'};
 }
+
 -- UI Telescope and Status
 require('telescope').load_extension 'file_browser'
 require('lualine').setup()
@@ -98,6 +101,10 @@ map('n', '<leader>cb', '<cmd>CMakeBuild -j4<CR>')
 -- GoogleTest --
 map('n', '<leader>gt', '<cmd>GTestRunUnderCursor<cr>')
 
+-- REPL --
+map('n', '<leader>vip', '<cmd>ReplToggle<CR>')
+map('n', '<leader>w', '<plug>ReplSendLine<CR>')
+map('v', '<leader>w', '<plug>ReplSendVisual<CR>')
 ---------------------- TREE-SITTER ---------------------------
 local ts = require 'nvim-treesitter.configs'
 ts.setup {
