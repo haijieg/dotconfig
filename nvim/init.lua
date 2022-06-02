@@ -53,6 +53,9 @@ if fn.filereadable(gtest_command) then
   g['gtest#gtest_command'] = gtest_command
 end
 
+-- REPL
+g['repl_filetype_commands'] = {python='bpython -q'}
+
 -------------------- OPTIONS -------------------------------
 opt.completeopt = {'menuone', 'noinsert', 'noselect'}  -- Completion options (for deoplete)
 opt.expandtab = true                -- Use spaces instead of tabs
@@ -103,12 +106,12 @@ map('n', '<leader>gt', '<cmd>GTestRunUnderCursor<cr>')
 
 -- REPL --
 map('n', '<leader>vip', '<cmd>ReplToggle<CR>')
-map('n', '<leader>w', '<plug>ReplSendLine<CR>')
-map('v', '<leader>w', '<plug>ReplSendVisual<CR>')
+map('n', '<leader>w', '<plug>ReplSendLine')
+map('v', '<leader>w', '<plug>ReplSendVisual')
 ---------------------- TREE-SITTER ---------------------------
 local ts = require 'nvim-treesitter.configs'
 ts.setup {
-  ensure_installed = 'maintained',
+  ensure_installed = 'all',
   highlight = {enable = true},
   indent = {enable = true}
 }
