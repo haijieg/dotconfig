@@ -34,6 +34,7 @@ require "paq" {
   {'vim-scripts/a.vim'};
   {'tpope/vim-repeat'};
   {'pappasam/nvim-repl'};
+  {'Vimjas/vim-python-pep8-indent'};
 }
 
 -- UI Telescope and Status
@@ -113,7 +114,7 @@ local ts = require 'nvim-treesitter.configs'
 ts.setup {
   ensure_installed = 'all',
   highlight = {enable = true},
-  indent = {enable = true}
+  indent = {enable = true, disable={"python"}}
 }
 -------------------- LSP --------------------------
 -- Mappings.
